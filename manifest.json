@@ -1,0 +1,20 @@
+{
+    "name": "MC Editor",
+    "description": "A tab to edit module configs",
+    "manifest_version": 3,
+    "version": "1.0",
+    "devtools_page": "devtools.html",
+    "content_scripts": [{
+        "matches": [
+          "http://*/*",
+          "https://*/*"
+        ],
+        "run_at": "document_idle",
+        "js": [
+          "content_script.js"
+        ]
+    }],
+    "background": {
+        "service_worker": "background.js"
+    }
+}
