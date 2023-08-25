@@ -1,39 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-  </head>
-  <body>
-    <h1>Edit Module Configs</h1>
-    <body>
-      <div class="container">
-        <div class="search-bar">
-          <input type="text" id="searchInput" placeholder="Search...">
-        </div>
-        <table id="data-table">
-          <thead>
-            <tr>
-              <th>Module Config</th>
-              <th>Value</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td contenteditable="false">Data 1A</td>
-              <td contenteditable="true">Data 1B</td>
-            </tr>
-            <tr>
-              <td contenteditable="false">Data 2A</td>
-              <td contenteditable="true">Data 2B</td>
-            </tr>
-            <!-- Add more rows as needed -->
-          </tbody>
-        </table>
-        <button id="saveButton">Save Changes</button>
-      </div>
-      <script src="script.js"></script>
-    </body>
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>Table App</title>
+</head>
+<body>
+  <div class="container">
+    <input type="text" id="searchInput" placeholder="Search...">
+    <table id="data-table">
+      <thead>
+        <tr>
+          <th>Module Config</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Data rows will be populated here -->
+      </tbody>
+    </table>
+    <button id="saveButton">Save</button>
+  </div>
+  <script src="script.js"></script>
+</body>
 </html>

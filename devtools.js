@@ -1,13 +1,20 @@
 let youClickedOn; 
 chrome.devtools.panels.create("MC Editor", "icon.png", "panel.html", panel => {
-    // code invoked on panel creation
-    panel.onShown.addListener( (extPanelWindow) => {
-        let sayHello = extPanelWindow.document.querySelector('#sayHello');
-        youClickedOn = extPanelWindow.document.querySelector('#youClickedOn');
-        sayHello.addEventListener("click", () => {
-            // show a greeting alert in the inspected page
-            chrome.devtools.inspectedWindow.eval('alert("Hello from the DevTools Extension");');
-        });             
+    panel.onShown.addListener(extPanelWindow => {
+        chrome.devtools.inspectedWindow.eval('JSON.stringify(sessionStorage)', (result, exception) => {
+            if (exception) {
+                console.error('Error retrieving session storage:', exception);
+                return;
+            }
+
+            const sessionStorageData = JSON.parse(result);
+            const blModuleConfigs = sessionStorageData['blModuleConfigs'];
+
+            if (blModuleConfigs) {
+                const parsedConfigs = JSON.parse(blModuleConfigs);
+                populateTableWithData(parsedConfigs);
+            }
+        });
     });
 });
 
